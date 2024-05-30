@@ -3,7 +3,7 @@ import axios from 'axios';
 class GitHub {
     private clientId: string = 'Ov23lirkgnmCQkhu85yf';
     private clientSecret: string = 'be8993251e82bc14aca9e90e1e1c58f69d201d8b';
-    private redirectUri = 'https://cloud-native-security-news.github.io/github';
+    private redirectUri = 'https://cloud-native-security-news.github.io/#/github';
     // private redirectUri = 'http://localhost:5176/github'
     private accessToken: string = '';
 

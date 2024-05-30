@@ -1,4 +1,4 @@
-import {createRouter, createWebHashHistory, createWebHistory, Router, RouteRecordRaw} from 'vue-router'
+import {createRouter, createWebHashHistory, Router, RouteRecordRaw} from 'vue-router'
 import Github from "@/components/Github.vue";
 import HelloWorld from "@/components/HelloWorld.vue";
 
