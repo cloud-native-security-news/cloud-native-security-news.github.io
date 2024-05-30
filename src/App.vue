@@ -1,9 +1,7 @@
-<script setup lang="ts">
-import Github from "@/components/Github.vue";
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <Github/>
+  <RouterView/>
 </template>
 
 <style scoped>

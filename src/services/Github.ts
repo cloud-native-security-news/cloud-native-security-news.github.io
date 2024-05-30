@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-class GitHubService {
+class GitHub {
     private clientId: string = 'Ov23lirkgnmCQkhu85yf';
     private clientSecret: string = 'be8993251e82bc14aca9e90e1e1c58f69d201d8b';
     private redirectUri = 'https://cloud-native-security-news.github.io/github';
+    // private redirectUri = 'http://localhost:5176/github'
     private accessToken: string = '';
 
     constructor() {
@@ -36,6 +37,7 @@ class GitHubService {
     }
 
     async listRepositoryFiles(owner: string, repo: string): Promise<any> {
+        console.log(this.accessToken);
         const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/`;
         const response = await axios.get(apiUrl, {
             headers: {
@@ -47,4 +49,4 @@ class GitHubService {
     }
 }
 
-export default new GitHubService();
+export default new GitHub();

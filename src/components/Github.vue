@@ -1,19 +1,30 @@
 <script setup lang="ts">
 import {ref} from 'vue';
 import Github from "@/services/Github.ts";
+import {useRoute, useRouter} from 'vue-router';
 
 const files = ref([]);
-const repoPath = ref('');
+const router = useRouter();
+const route = useRoute();
 
-const login = () => {
-  Github.login()
+const login = async () => {
+  const code = route.query.code as string;
+  if (code) {
+    try {
+      await Github.authenticate(code);
+      await router.replace({query: {}}); // 清除URL中的code参数
+    } catch (error) {
+      console.error(error);
+    }
+  } else {
+    await Github.login()
+  }
 };
 
 const listContents = async () => {
-  if (repoPath.value) {
-    const [owner, repo] = repoPath.value.split('/');
-    files.value = await Github.listRepositoryFiles(owner, repo);
-  }
+  const owner = 'cloud-native-security-news'
+  const repo = 'researcher'
+  files.value = await Github.listRepositoryFiles(owner, repo);
 };
 </script>
 
@@ -21,7 +32,6 @@ const listContents = async () => {
   <div>
     <button @click="login">Login to GitHub</button>
     <div>
-      <input v-model="repoPath" placeholder="Enter repo path like 'owner/repo/path'"/>
       <button @click="listContents">List Contents</button>
     </div>
     <ul>
