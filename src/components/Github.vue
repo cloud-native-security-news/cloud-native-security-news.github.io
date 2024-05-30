@@ -6,7 +6,7 @@ const files = ref([]);
 const repoPath = ref('');
 
 const login = () => {
-  // 这里应实现真正的登录流程，例如重定向到 GitHub 授权页面
+  Github.login()
 };
 
 const listContents = async () => {

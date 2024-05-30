@@ -1,11 +1,20 @@
 import axios from 'axios';
 
 class GitHubService {
-    private clientId: string = 'YOUR_CLIENT_ID';
-    private clientSecret: string = 'YOUR_CLIENT_SECRET';
+    private clientId: string = 'Ov23lirkgnmCQkhu85yf';
+    private clientSecret: string = 'be8993251e82bc14aca9e90e1e1c58f69d201d8b';
+    private redirectUri = 'https://cloud-native-security-news.github.io/github';
     private accessToken: string = '';
 
-    constructor() {}
+    constructor() {
+
+    }
+
+    async login() {
+        const scope = 'repo';
+        const state = crypto.randomUUID();
+        window.location.href = `https://github.com/login/oauth/authorize?client_id=${this.clientId}&redirect_uri=${this.redirectUri}&scope=${scope}&state=${state}`;
+    }
 
     async authenticate(code: string): Promise<void> {
         const tokenUrl = `https://github.com/login/oauth/access_token`;
@@ -16,7 +25,7 @@ class GitHubService {
         };
 
         const response = await axios.post(tokenUrl, data, {
-            headers: { Accept: 'application/json' }
+            headers: {Accept: 'application/json'}
         });
 
         if (response.data.access_token) {
