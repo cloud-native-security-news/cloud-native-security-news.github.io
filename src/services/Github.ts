@@ -31,7 +31,6 @@ class GitHub {
                 // 'x-cors-headers': JSON.stringify({})
             }
         });
-        console.log(response);
         if (response.data.access_token) {
             this.accessToken = response.data.access_token;
         } else {
@@ -40,14 +39,12 @@ class GitHub {
     }
 
     async listRepositoryFiles(owner: string, repo: string): Promise<any> {
-        console.log(this.accessToken);
         const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/`;
         const response = await axios.get(apiUrl, {
             headers: {
                 Authorization: `token ${this.accessToken}`
             }
         });
-
         return response.data;
     }
 }
