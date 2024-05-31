@@ -18,7 +18,7 @@ class GitHub {
     }
 
     async authenticate(code: string): Promise<void> {
-        const tokenUrl = `https://github.com/login/oauth/access_token`;
+        const tokenUrl = `https://https://cors-anywhere.ssst0n3.workers.dev/?github.com/login/oauth/access_token`;
         const data = {
             client_id: this.clientId,
             client_secret: this.clientSecret,
@@ -26,7 +26,11 @@ class GitHub {
         };
 
         const response = await axios.post(tokenUrl, data, {
-            headers: {Accept: 'application/json'}
+            headers: {
+                Accept: 'application/json',
+                'x-cors-proxy-api-key': this.clientId,
+                'x-cors-headers': JSON.stringify({})
+            }
         });
 
         if (response.data.access_token) {
