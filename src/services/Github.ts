@@ -1,7 +1,6 @@
 import axios from 'axios';
 import Cookies from 'js-cookie'
-import {ResearcherFile} from "@/types/researcher_file.ts";
-import {Researcher} from "@/types/researcher.ts";
+import {GithubFile} from "@/types/github_file.ts";
 
 class GitHub {
     private clientId: string = 'Ov23lirkgnmCQkhu85yf';
@@ -58,22 +57,26 @@ class GitHub {
         }
     }
 
-    async listRepositoryFiles(owner: string, repo: string, path: string): Promise<ResearcherFile[]> {
+    async listRepositoryFiles(auth: boolean, owner: string, repo: string, path: string): Promise<GithubFile[]> {
         const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+        const headers: Record<string, string> = {}
+        if (auth) {
+            headers['Authorization'] = `Bearer ${this.accessToken}`;
+        }
         const response = await axios.get(apiUrl, {
-            headers: {
-                Authorization: `token ${this.accessToken}`
-            }
+            headers: headers,
         });
         return response.data;
     }
 
-    async getResearcherByFile(file: ResearcherFile): Promise<Researcher> {
+    async getFileContent<T>(auth: boolean, file: GithubFile): Promise<T> {
         const url = `https://cors-anywhere.ssst0n3.workers.dev/?${file.download_url}`
-        const response = await axios.get<Researcher>(url, {
-                headers: {
-                    Authorization: `token ${this.accessToken}`
-                }
+        const headers: Record<string, string> = {}
+        if (auth) {
+            headers['Authorization'] = `Bearer ${this.accessToken}`;
+        }
+        const response = await axios.get<T>(url, {
+                headers: headers,
             }
         )
         return response.data

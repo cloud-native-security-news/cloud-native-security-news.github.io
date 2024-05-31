@@ -3,13 +3,13 @@
 // import ResearcherItem from "@/components/researcher/ResearcherItem.vue";
 import {onMounted, ref} from "vue";
 import {ResearcherService} from "@/services/Researcher.ts";
-import {ResearcherFile} from "@/types/researcher_file.ts";
+import {GithubFile} from "@/types/github_file.ts";
 import Github from "@/services/Github.ts";
 import {useRoute} from "vue-router";
 
 const route = useRoute();
 
-const researcher_files = ref<ResearcherFile[]>([]);
+const files = ref<GithubFile[]>([]);
 
 const login = async () => {
   if (Github.logged()) {
@@ -30,7 +30,7 @@ const login = async () => {
 
 onMounted(async () => {
   await login()
-  researcher_files.value = await ResearcherService.getResearcherFiles();
+  files.value = await ResearcherService.getResearcherFiles();
 });
 const columns = [
   {
@@ -52,11 +52,11 @@ const columns = [
 </script>
 
 <template>
-  <div v-if="researcher_files.length">
+  <div v-if="files.length">
     <a-table
-        v-if="researcher_files.length > 0"
+        v-if="files.length > 0"
         :columns="columns"
-        :data-source="researcher_files"
+        :data-source="files"
     >
       <template #bodyCell="{ column, record }">
         <template v-if="column.key === 'name'">
