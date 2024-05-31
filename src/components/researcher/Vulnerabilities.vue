@@ -44,39 +44,57 @@ const columns = [
   <h2>Vulnerability
     <span v-if="vulnerabilities">{{ vulnerabilities.length }}</span>
   </h2>
-  <a-table
-      :columns="columns"
-      :data-source="vulnerabilities"
-      style="margin-top: 10px">
-    <template #bodyCell="{ column, record }">
-      <template v-if="column.key === 'id'">
-        {{ record.id }}
-      </template>
-      <template v-else-if="column.key === 'project'">
-        <a :href="record.project.homepage">{{ record.project.name }}</a>
-      </template>
-      <template v-else-if="column.key === 'role'">
+  <a-config-provider
+      :theme="{
+            components: {
+              Table: {
+                colorBgContainer: '#25242f', // 表格背景色, 不能设置为transparent
+                colorText: '#ffffff',
+                colorTextHeading: '#ffffff'
+              },
+              Pagination: {
+                colorBgContainer: '#25242f', // button背景色
+                colorPrimary: '#fc80ff', // 框架线条色
+                colorPrimaryHover: 'white', // 框架线条色
+                colorText: 'white',
+              }
+            },
+          }"
+  >
+    <a-table
+        :columns="columns"
+        :data-source="vulnerabilities"
+        style="margin-top: 10px">
+      <template #bodyCell="{ column, record }">
+        <template v-if="column.key === 'id'">
+          {{ record.id }}
+        </template>
+        <template v-else-if="column.key === 'project'">
+          <a :href="record.project.homepage">{{ record.project.name }}</a>
+        </template>
+        <template v-else-if="column.key === 'role'">
             <span v-for="credit in record.credits">
               <span v-if="credit.researcher_id === researcher_id">
                 {{ credit.type }}&nbsp;
               </span>
             </span>
-      </template>
-      <template v-else-if="column.key === 'exploit'">
+        </template>
+        <template v-else-if="column.key === 'exploit'">
             <span v-for="exploit in record.exploits">
               <a :href="exploit.url" target="_blank">{{ exploit.name }}</a>&nbsp;
             </span>
-      </template>
-      <template v-else-if="column.key === 'tag'">
+        </template>
+        <template v-else-if="column.key === 'tag'">
             <span v-for="tag in record.tags">
               <a-tag>{{ tag.name }}</a-tag>
             </span>
+        </template>
+        <template v-else-if="column.key === 'published'">
+          {{ record.published }}
+        </template>
       </template>
-      <template v-else-if="column.key === 'published'">
-        {{ record.published }}
-      </template>
-    </template>
-  </a-table>
+    </a-table>
+  </a-config-provider>
 </template>
 
 <style scoped>

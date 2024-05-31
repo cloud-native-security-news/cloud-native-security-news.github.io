@@ -53,17 +53,35 @@ const columns = [
 
 <template>
   <div v-if="files.length">
-    <a-table
-        v-if="files.length > 0"
-        :columns="columns"
-        :data-source="files"
+    <a-config-provider
+        :theme="{
+            components: {
+              Table: {
+                colorBgContainer: '#25242f', // 表格背景色, 不能设置为transparent
+                colorText: '#ffffff',
+                colorTextHeading: '#ffffff'
+              },
+              Pagination: {
+                colorBgContainer: '#25242f', // button背景色
+                colorPrimary: '#fc80ff', // 框架线条色
+                colorPrimaryHover: 'white', // 框架线条色
+                colorText: 'white',
+              }
+            },
+          }"
     >
-      <template #bodyCell="{ column, record }">
-        <template v-if="column.key === 'name'">
-          <a :href="`/researcher/${record.ID}`">{{ record.name }}</a>
+      <a-table
+          v-if="files.length > 0"
+          :columns="columns"
+          :data-source="files"
+      >
+        <template #bodyCell="{ column, record }">
+          <template v-if="column.key === 'name'">
+            <a :href="`/researcher/${record.ID}`">{{ record.name }}</a>
+          </template>
         </template>
-      </template>
-    </a-table>
+      </a-table>
+    </a-config-provider>
   </div>
   <div v-else>
     Loading researchers...
@@ -72,5 +90,12 @@ const columns = [
 </template>
 
 <style scoped>
-
+.container {
+  margin: auto;
+  max-width: 1100px;
+  padding-left: 100px;
+  padding-right: 100px;
+  text-align: left;
+  word-wrap: break-word;
+}
 </style>
