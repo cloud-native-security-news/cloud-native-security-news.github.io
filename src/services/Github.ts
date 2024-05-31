@@ -28,8 +28,7 @@ class GitHub {
         const response = await axios.post(tokenUrl, data, {
             headers: {
                 Accept: 'application/json',
-                'x-cors-proxy-api-key': this.clientId,
-                'x-cors-headers': JSON.stringify({})
+                // 'x-cors-headers': JSON.stringify({})
             }
         });
         console.log(response);
