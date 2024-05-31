@@ -1,10 +1,12 @@
 <script lang="ts" setup>
 import {menu} from "@/menu/menu.ts";
 import Desc from "@/components/layout/Desc.vue";
+import ImageWall from "@/components/gadget/ImageWall.vue";
 </script>
 
 <template>
   <div class="container">
+    <ImageWall image="/assets/cnsn.jpeg" height="200px" background-color="#fff9db"/>
     <div class="content">
       <a-row>
         <p class="title">CNSN</p>

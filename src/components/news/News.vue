@@ -4,6 +4,7 @@ import {GithubFile} from "@/types/github_file.ts";
 import {NewsService} from "@/services/News.ts";
 import Markdown from "@/components/markdown/Markdown.vue";
 import News from "@/markdown/news.md"
+import ImageWall from "@/components/gadget/ImageWall.vue";
 
 const files = ref<GithubFile[]>([]);
 onMounted(async () => {
@@ -13,6 +14,7 @@ onMounted(async () => {
 
 <template>
   <div class="container">
+    <ImageWall image="/assets/cnsn.jpeg" height="200px" background-color="#fff9db"/>
     <div class="content">
       <Markdown :component="News" padding="0" />
     </div>
