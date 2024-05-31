@@ -18,7 +18,7 @@ class GitHub {
     }
 
     async authenticate(code: string): Promise<void> {
-        const tokenUrl = `https://cors-anywhere.ssst0n3.workers.dev/?github.com/login/oauth/access_token`;
+        const tokenUrl = `https://cors-anywhere.ssst0n3.workers.dev/?https://github.com/login/oauth/access_token`;
         const data = {
             client_id: this.clientId,
             client_secret: this.clientSecret,
