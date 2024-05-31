@@ -32,7 +32,7 @@ class GitHub {
                 'x-cors-headers': JSON.stringify({})
             }
         });
-
+        console.log(response);
         if (response.data.access_token) {
             this.accessToken = response.data.access_token;
         } else {
