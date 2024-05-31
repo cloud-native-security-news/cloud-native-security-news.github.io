@@ -132,6 +132,14 @@
     },
     {
       "filename": "news/2023-12-14_azure-container-instances(2).md.md",
+      "url": "https://github.com/cloud-native-security-news/cloud-native-security-news/blob/main/image/2023-12-14_Azure%E5%AE%B9%E5%99%A8%E5%AE%9E%E4%BE%8B%E4%B8%AD%E9%A6%96%E6%AC%A1%E8%B7%A8%E7%A7%9F%E6%88%B7%E5%AE%B9%E5%99%A8%E6%8E%A5%E7%AE%A1%E6%BC%8F%E6%B4%9E(%E4%B8%8B)/Figure16.png?raw=true"
+    },
+    {
+      "filename": "news/image/2023-12-14_Azure容器实例中首次跨租户容器接管漏洞(下)/Figure16.png",
+      "url": "https://raw.githubusercontent.com/cloud-native-security-news/cloud-native-security-news/main/2023-12-14_azure-container-instances(2).md"
+    },
+    {
+      "filename": "news/image/2023-12-14_Azure容器实例中首次跨租户容器接管漏洞(下)/Figure17.png",
       "url": "https://raw.githubusercontent.com/cloud-native-security-news/cloud-native-security-news/main/2023-12-14_azure-container-instances(2).md"
     },
     {
