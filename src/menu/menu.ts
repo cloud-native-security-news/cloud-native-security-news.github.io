@@ -7,13 +7,13 @@ let menu: MenuItem[] = [
         title: 'News',
         key: 'news/',
         icon: BookOutlined,
-        description: 'news',
+        description: '加入云原生安全资讯项目, 每天阅读安全资讯，总结并共享。',
     },
     {
         title: 'Researcher',
         key: 'researcher',
         icon: BookOutlined,
-        description: 'researcher',
+        description: '追踪研究者动态：漏洞线索、研究方向、业界进展就隐藏在信息流中。',
     },
 ]
 
