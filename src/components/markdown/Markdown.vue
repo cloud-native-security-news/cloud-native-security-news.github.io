@@ -46,7 +46,7 @@ let padding = props.padding ? props.padding : '100px';
 }
 
 ::v-deep(a) {
-  color: #e1e1e1;
+  color: #59cf5e;
   /* color: #fc80ff; */
   text-decoration: underline;
   text-decoration-color: dimgray;
@@ -55,7 +55,7 @@ let padding = props.padding ? props.padding : '100px';
 }
 
 ::v-deep(a:hover) {
-  color: #fc80ff;
+  color: #70fd7b;
   /* color: white; */
 }
 

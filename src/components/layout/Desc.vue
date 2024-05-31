@@ -10,7 +10,7 @@ const props = defineProps<{
 <template>
     <a-row>
       <router-link :to="'/' + props.menu.key">
-        <component :is="props.menu.icon" :style="{color: 'hotpink'}"/>
+        <component :is="props.menu.icon" :style="{color: '#52dd59'}"/>
         <span class="graph-title">{{ menu.title }}</span>
       </router-link>
     </a-row>
@@ -22,13 +22,14 @@ const props = defineProps<{
   margin-left: 10px;
 }
 a {
-  color: #e1e1e1;
+  color: #4bcd52;
+  font-weight: bold;
   text-decoration: underline;
-  text-decoration-color: dimgray;
+  text-decoration-color: #919090;
   text-underline-offset: 0.4em;
   margin-bottom: 10px;
 }
 a:hover {
-  color: #fc80ff;
+  color: #5de164;
 }
 </style>

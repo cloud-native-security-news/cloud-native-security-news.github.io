@@ -18,8 +18,8 @@ const go = (item: ItemType) => {
       :theme="{
         components: {
           Layout: {
-            colorBgBody: '#25242f',   // layout content 背景
-            colorBgHeader: '#fc80ff', // layout header 背景
+            colorBgBody: '#192737',   // layout content 背景
+            colorBgHeader: '#5de164', // layout header 背景
             colorText: 'white',       // layout footer 文字颜色
           },
         },
@@ -33,12 +33,12 @@ const go = (item: ItemType) => {
             components: {
               Menu: {
                 // fontSize: '18px',    // 菜单文字大小，但一设置，和icon的间距就不对了
-                colorItemBg: '#fc80ff', // 菜单背景色
-                colorBgElevated: '#fc80ff', // 次级菜单背景色
+                colorItemBg: '#5de164', // 菜单背景色
+                colorBgElevated: '#5de164', // 次级菜单背景色
                 colorItemTextHover: 'white', // 菜单hover
                 colorItemTextSelectedHorizontal: 'white', // 菜单hover下划线颜色
                 colorItemTextSelected: 'white',
-                colorItemBgSelected: '#fc80ff',
+                colorItemBgSelected: '#5de164',
               }
             },
           }"
