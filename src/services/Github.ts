@@ -16,7 +16,6 @@ class GitHub {
 
     logged(): boolean {
         this.initToken()
-        alert(this.accessToken);
         return this.accessToken.length > 0;
     }
 

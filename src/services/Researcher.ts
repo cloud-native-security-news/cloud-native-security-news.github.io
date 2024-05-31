@@ -15,9 +15,6 @@ export class ResearcherService {
             const id = parseInt(file.name.substring(0, 4))
             file.ID = id
             this.researcher_files.set(id, file)
-            console.log("files:")
-            console.log(this.researcher_files)
-            console.log(this.researcher_files.get(file.ID))
         })
         return Array.from(this.researcher_files.values())
     }
@@ -28,11 +25,6 @@ export class ResearcherService {
 
     public static async getResearcherById(id: number): Promise<Researcher> {
         await this.getResearcherFiles()
-        console.log("get:")
-        console.log(this.researcher_files)
-        console.log(this.researcher_files.keys())
-        console.log(this.researcher_files.values())
-        console.log(this.researcher_files.get(id))
         const file = this.researcher_files.get(id)
         if (!file) {
             throw new Error('Researcher file not found')
