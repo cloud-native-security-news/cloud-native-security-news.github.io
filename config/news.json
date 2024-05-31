@@ -23,6 +23,18 @@
       "url": "https://raw.githubusercontent.com/cloud-native-security-news/cloud-native-security-news/main/2023-10-28_Falco-detect-K8S-escape.md"
     },
     {
+      "filename": "news/image/2023.10.28_通过Falco检测K8S容器逃逸行为/1698460544954.png",
+      "url": "https://raw.githubusercontent.com/cloud-native-security-news/cloud-native-security-news/main/image/2023.10.28_%E9%80%9A%E8%BF%87Falco%E6%A3%80%E6%B5%8BK8S%E5%AE%B9%E5%99%A8%E9%80%83%E9%80%B8%E8%A1%8C%E4%B8%BA/1698460544954.png"
+    },
+    {
+      "filename": "news/image/2023.10.28_通过Falco检测K8S容器逃逸行为/1698468600557.png",
+      "url": "https://raw.githubusercontent.com/cloud-native-security-news/cloud-native-security-news/main/image/2023.10.28_%E9%80%9A%E8%BF%87Falco%E6%A3%80%E6%B5%8BK8S%E5%AE%B9%E5%99%A8%E9%80%83%E9%80%B8%E8%A1%8C%E4%B8%BA/1698468600557.png"
+    },
+    {
+      "filename": "news/image/2023.10.28_通过Falco检测K8S容器逃逸行为/1698481090034.png",
+      "url": "https://raw.githubusercontent.com/cloud-native-security-news/cloud-native-security-news/main/image/2023.10.28_%E9%80%9A%E8%BF%87Falco%E6%A3%80%E6%B5%8BK8S%E5%AE%B9%E5%99%A8%E9%80%83%E9%80%B8%E8%A1%8C%E4%B8%BA/1698481090034.png",
+    },
+    {
       "filename": "news/2023-10-31_govulncheck.md.md",
       "url": "https://raw.githubusercontent.com/cloud-native-security-news/cloud-native-security-news/main/2023-10-31_govulncheck.md"
     },
@@ -33,6 +45,10 @@
     {
       "filename": "news/2023-11-02_podman-unshare.md.md",
       "url": "https://raw.githubusercontent.com/cloud-native-security-news/cloud-native-security-news/main/2023-11-02_podman-unshare.md"
+    },
+    {
+      "filename": "news/image/2023-11-02/1698934838010.png",
+      "url": "https://raw.githubusercontent.com/cloud-native-security-news/cloud-native-security-news/main/image/2023-11-02/1698934838010.png"
     },
     {
       "filename": "news/2023-11-23_Wiz_K8s-security-report.md.md",
@@ -53,6 +69,10 @@
     {
       "filename": "news/2023-12-12_azure-container-instances(1).md.md",
       "url": "https://raw.githubusercontent.com/cloud-native-security-news/cloud-native-security-news/main/2023-12-12_azure-container-instances(1).md"
+    },
+    {
+      "filename": "news/image/2023-12-11_Azure容器实例中的多租户容器接管/Figure1.png",
+      "url": "https://raw.githubusercontent.com/cloud-native-security-news/cloud-native-security-news/main/image/2023-12-11_Azure%E5%AE%B9%E5%99%A8%E5%AE%9E%E4%BE%8B%E4%B8%AD%E7%9A%84%E5%A4%9A%E7%A7%9F%E6%88%B7%E5%AE%B9%E5%99%A8%E6%8E%A5%E7%AE%A1/Figure1.png"
     },
     {
       "filename": "news/2023-12-14_azure-container-instances(2).md.md",
