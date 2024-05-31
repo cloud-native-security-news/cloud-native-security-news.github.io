@@ -1,10 +1,10 @@
 import {createRouter, createWebHistory, Router, RouteRecordRaw} from 'vue-router'
-import Github from "@/components/Github.vue";
-import HelloWorld from "@/components/HelloWorld.vue";
+import ResearcherItem from "@/components/researcher/ResearcherItem.vue";
+import Researchers from "@/components/researcher/Researchers.vue";
 
 const routes: RouteRecordRaw[] = [
-    {path: '/github', component: Github},
-    {path: '/hello', component: HelloWorld},
+    {path: '/', component: Researchers},
+    {path: '/researcher/:researcher_id', component: ResearcherItem, props: true},
 ]
 
 const router: Router = createRouter({

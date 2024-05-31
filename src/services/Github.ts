@@ -1,17 +1,37 @@
 import axios from 'axios';
+import Cookies from 'js-cookie'
+import {ResearcherFile} from "@/types/researcher_file.ts";
+import {Researcher} from "@/types/researcher.ts";
 
 class GitHub {
     private clientId: string = 'Ov23lirkgnmCQkhu85yf';
     private clientSecret: string = 'be8993251e82bc14aca9e90e1e1c58f69d201d8b';
     private redirectUri = 'https://cloud-native-security-news.github.io/';
-    // private redirectUri = 'http://localhost:5176/github'
+    // private redirectUri = 'http://localhost:5176/'
     private accessToken: string = '';
 
     constructor() {
+        this.initToken()
+    }
 
+    logged(): boolean {
+        this.initToken()
+        alert(this.accessToken);
+        return this.accessToken.length > 0;
+    }
+
+
+    private initToken(): void {
+        const token = Cookies.get('access_token');
+        if (token) {
+            this.accessToken = token;
+        }
     }
 
     async login() {
+        if (this.logged()) {
+            return
+        }
         const scope = 'repo';
         const state = crypto.randomUUID();
         window.location.href = `https://github.com/login/oauth/authorize?client_id=${this.clientId}&redirect_uri=${this.redirectUri}&scope=${scope}&state=${state}`;
@@ -33,19 +53,31 @@ class GitHub {
         });
         if (response.data.access_token) {
             this.accessToken = response.data.access_token;
+            Cookies.set('access_token', this.accessToken);
         } else {
             throw new Error('Authentication failed');
         }
     }
 
-    async listRepositoryFiles(owner: string, repo: string): Promise<any> {
-        const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/`;
+    async listRepositoryFiles(owner: string, repo: string, path: string): Promise<ResearcherFile[]> {
+        const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
         const response = await axios.get(apiUrl, {
             headers: {
                 Authorization: `token ${this.accessToken}`
             }
         });
         return response.data;
+    }
+
+    async getResearcherByFile(file: ResearcherFile): Promise<Researcher> {
+        const url = `https://cors-anywhere.ssst0n3.workers.dev/?${file.download_url}`
+        const response = await axios.get<Researcher>(url, {
+                headers: {
+                    Authorization: `token ${this.accessToken}`
+                }
+            }
+        )
+        return response.data
     }
 }
 

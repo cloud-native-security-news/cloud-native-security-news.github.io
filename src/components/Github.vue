@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import {ref} from 'vue';
+import {onMounted, ref} from 'vue';
 import Github from "@/services/Github.ts";
-import {useRoute, useRouter} from 'vue-router';
+import {useRoute} from 'vue-router';
 
 const files = ref([]);
-const router = useRouter();
 const route = useRoute();
 
 const login = async () => {
@@ -12,7 +11,7 @@ const login = async () => {
   if (code) {
     try {
       await Github.authenticate(code);
-      await router.replace({query: {}}); // 清除URL中的code参数
+      // await router.replace({query: {}}); // 清除URL中的code参数
     } catch (error) {
       console.error(error);
     }
@@ -24,8 +23,13 @@ const login = async () => {
 const listContents = async () => {
   const owner = 'cloud-native-security-news'
   const repo = 'researcher'
-  files.value = await Github.listRepositoryFiles(owner, repo);
+  const path = 'json'
+  files.value = await Github.listRepositoryFiles(owner, repo, path);
 };
+
+onMounted(async () => {
+  await login()
+})
 </script>
 
 <template>
