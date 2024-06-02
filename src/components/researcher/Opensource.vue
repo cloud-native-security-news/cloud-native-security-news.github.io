@@ -41,7 +41,7 @@ const columns = [
               },
               Pagination: {
                 colorBgContainer: '#25242f', // button背景色
-                colorPrimary: '#fc80ff', // 框架线条色
+                colorPrimary: '#5de164', // 框架线条色
                 colorPrimaryHover: 'white', // 框架线条色
                 colorText: 'white',
               }
