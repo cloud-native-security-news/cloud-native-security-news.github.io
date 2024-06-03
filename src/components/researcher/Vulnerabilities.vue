@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import {Vulnerability} from "@/types/vulnerability.ts";
+import {inject, Ref} from "vue";
+import {Theme, themes} from "@/theme.ts";
 
 defineProps<{
   vulnerabilities: Vulnerability[]
@@ -38,6 +40,11 @@ const columns = [
     key: 'published'
   },
 ]
+
+const theme = inject<Ref<Theme>>('theme');
+if (!theme) {
+  throw 'theme undefined'
+}
 </script>
 
 <template>
@@ -48,17 +55,17 @@ const columns = [
       :theme="{
             components: {
               Table: {
-                colorBgContainer: '#25242f', // 表格背景色, 不能设置为transparent
+                colorBgContainer: theme.colorBgBody, // 表格背景色, 不能设置为transparent
                 colorText: '#ffffff',
                 colorTextHeading: '#ffffff'
               },
               Pagination: {
-                colorBgContainer: '#25242f', // button背景色
-                colorPrimary: '#5de164', // 框架线条色
+                colorBgContainer: theme.colorBgBody, // button背景色
+                colorPrimary: theme.colorPrimary, // 框架线条色
                 colorPrimaryHover: 'white', // 框架线条色
-                colorText: 'white',
+                colorText: 'white'
               }
-            },
+            }
           }"
   >
     <a-table

@@ -1,11 +1,12 @@
 <script setup lang="ts">
 
 // import ResearcherItem from "@/components/researcher/ResearcherItem.vue";
-import {onMounted, ref} from "vue";
+import {inject, onMounted, Ref, ref} from "vue";
 import {ResearcherService} from "@/services/Researcher.ts";
 import {GithubFile} from "@/types/github_file.ts";
 import Github from "@/services/Github.ts";
 import {useRoute} from "vue-router";
+import {Theme} from "@/theme.ts";
 
 const route = useRoute();
 
@@ -49,6 +50,11 @@ const columns = [
     key: 'item'
   }
 ]
+
+const theme = inject<Ref<Theme>>('theme');
+if (!theme) {
+  throw 'theme undefined'
+}
 </script>
 
 <template>
@@ -57,17 +63,17 @@ const columns = [
         :theme="{
             components: {
               Table: {
-                colorBgContainer: '#25242f', // 表格背景色, 不能设置为transparent
+                colorBgContainer: theme.colorBgBody, // 表格背景色, 不能设置为transparent
                 colorText: '#ffffff',
                 colorTextHeading: '#ffffff'
               },
               Pagination: {
-                colorBgContainer: '#25242f', // button背景色
-                colorPrimary: '#5de164', // 框架线条色
+                colorBgContainer: theme.colorBgBody, // button背景色
+                colorPrimary: theme.colorPrimary, // 框架线条色
                 colorPrimaryHover: 'white', // 框架线条色
-                colorText: 'white',
+                colorText: 'white'
               }
-            },
+            }
           }"
     >
       <a-table
@@ -97,5 +103,19 @@ const columns = [
   padding-right: 100px;
   text-align: left;
   word-wrap: break-word;
+}
+
+::v-deep(a) {
+  color: var(--colorLink);
+  /* color: #fc80ff; */
+  text-decoration: underline;
+  text-decoration-color: dimgray;
+  text-underline-offset: 0.2em;
+  margin-bottom: 10px;
+}
+
+::v-deep(a:hover) {
+  color: var(--colorHighlight);
+  /* color: white; */
 }
 </style>
