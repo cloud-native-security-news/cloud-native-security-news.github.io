@@ -54,4 +54,18 @@ const filename = computed(() => {
 .no-list-style {
   list-style: none;
 }
+
+::v-deep(a) {
+  color: var(--colorLink);
+  /* color: #fc80ff; */
+  text-decoration: underline;
+  text-decoration-color: dimgray;
+  text-underline-offset: 0.2em;
+  margin-bottom: 10px;
+}
+
+::v-deep(a:hover) {
+  color: var(--colorHighlight);
+  /* color: white; */
+}
 </style>
