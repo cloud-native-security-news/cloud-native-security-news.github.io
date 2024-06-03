@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "tsx script/download.ts",
+    "prebuild": "tsx script/news.ts",
     "build": "vue-tsc && vite build && cp _site/index.html _site/404.html",
     "preview": "vite preview"
   },
@@ -25,6 +25,7 @@
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20.12.13",
     "@vitejs/plugin-vue": "^5.0.4",
+    "simple-git": "^3.24.0",
     "tsx": "^4.11.0",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
