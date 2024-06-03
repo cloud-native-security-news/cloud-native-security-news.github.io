@@ -3,7 +3,7 @@ import {onMounted, ref} from "vue";
 import {GithubFile} from "@/types/github_file.ts";
 import {NewsService} from "@/services/News.ts";
 import Markdown from "@/components/markdown/Markdown.vue";
-import News from "@/markdown/news.md"
+import News from "@/markdown/news/README.md"
 import ImageWall from "@/components/gadget/ImageWall.vue";
 
 const files = ref<GithubFile[]>([]);

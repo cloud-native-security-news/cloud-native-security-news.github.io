@@ -18,18 +18,11 @@ function removePrefix(str: string, prefix: string): string {
     return str;
 }
 
-function removeSuffix(str: string, suffix: string): string {
-    if (str.endsWith(suffix)) {
-        return str.slice(0, -suffix.length);
-    }
-    return str;
-}
-
 const pass: string[] = []
 
 const modules: Record<string, any> = import.meta.glob("./markdown/**/*.md", {eager: true})
 Object.entries(modules).forEach(([key, module]) => {
-    const path = removeSuffix(removePrefix(key, "./markdown"), ".md")
+    const path = removePrefix(key, "./markdown")
     if (!pass.includes(path)) {
         routes.push({
             path: path,
