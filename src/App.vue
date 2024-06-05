@@ -1,15 +1,20 @@
 <script setup lang="ts">
 import Layout from "@/components/layout/Layout.vue";
+import {provide, ref} from "vue";
+import {themes} from "@/theme.ts";
+
+const theme = ref(themes.green);
+provide('theme', theme);
+
 </script>
 
 <template>
-  <Layout/>
+  <div id="app">
+    <Layout/>
+  </div>
 </template>
 
 <style>
-* {
-  cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAdCAYAAADLnm6HAAAD4klEQVR4AbVXTUhUURQ+E7UJNIU2qYRQ4Q9EBeK0KJgxbdFCxY0Lf4daiGThIkiF/CHLcJFmgYugkXDhJn8gF2nORG0US9votIgZYmbaBI4jtGkxne/OvTO3mTczbzQ/uJzHnfvu+d75zjn3DpFEJBKx8XDx2IlEscHjFebpEGGRzvvZDPj9QVpedlEwEKTSshKqrKygoqICLAnxcPOYh7VYLD76T7Cw82K2Xqdzmh4NjyYtKGMi1dV2slorqJKHxKYixGTcdACAwCx/eX2V/UbGxYWFBYJIdY1dRCc3NwfTiM4cjw+0j+iAwM7Es8m8iYlJMVF0vICqT9lp9dc6be9+S/syyFzj6FxmC8kk3BSXapMy4CiPvHB4LzYB573n74nnwO+gILL800VrbMN/9v55eXV1XQxARaehodbGUtkwxx/nSyAUIoMIeJeXXMWdnd2xyXn7DJWdKEliCxJvfiwI62dyqQBpVHS0RCZJZoqJOHUCA2z762obaXs7GnLryQp6feUlpQPkQXTec3Rg0wGJLHIHhKKJ7GQSDkUgj+0Gh7K4pflW7KU+lqHtTBOZAaRZ06RKF5329ibq7RMSjzGJbtUHbGxcww9HaWpqWizMPZZDcywFkjJbKDKpErmrq4O67nTgMd+iJpnEGCfj3fq6RkJDAsxIkQkqkWc5d5RUyJH1zx/x6DiirR3gH3yPR4ZiE3hh6vs0HQSFHMGG07XUIysL0KsuRkCWiAPJ0tYW137CM5lW00xAfmCP1k/x/Covj1VYSI8AybY6Dn1U6WCDni8PKFsgD1rYacXbq4KA3kNaox/oI/SGxBdlVXi5KvKyrQokHJIPsiU2LQDaIwHb2sU+3fzBYxajjZhEPZvZxKpYub4orBEgU9U74/NENSXukur8EM7xYEhAkpjlZKnXq6KG2/QL61PD9Qh5s6YzHCGXtFMUOTZO0fqPteQjlBoO3iTU2xvP3iUOL0JshC2t3mv4tFxxLYpaZ+dunrKz03weA4nnQUoCcuEgjl60UIX7nJBG+ga0SiktLVGhhlN7ujtDugiQ1Mk98mRIbSicP/dMJq31aBGQazeNTr+sCEgIKW53dcQmnJzliQeQHpWy6N0go3NTBOQNZxCHiDV+JUuSYjs5Al/JBMxEwFAKaK6kCCR0Snk78pEJmCIg4eBbj6EU+tdrbdZnZlPTBFJJgXbbuRq/TaECJDLeB8W+lCXw5yUQCNpwg9JPNQDyzC/M4H6ICrhEhwH8j8BN2u8PRJqbbkbOnb0gBp63tjwR+c+qmA4TkoQX3nZ3w2JIYO5iNntlLUECERxayqF7P/+S/gJsuw2ocJmaSAAAAABJRU5ErkJggg==) 2 6, none !important;
-}
 
 html, body {
   line-height: 1.5;

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 
 import {DataSource} from "@/types/datasource.ts";
+import {inject} from "vue";
+import {Theme, themes} from "@/theme.ts";
 
 defineProps<{
   data_sources: DataSource[]
@@ -22,6 +24,7 @@ const columns = [
     key: 'description'
   },
 ]
+const theme = inject<Theme>('theme', themes.green);
 </script>
 
 <template>
@@ -30,13 +33,13 @@ const columns = [
       :theme="{
             components: {
               Table: {
-                colorBgContainer: '#25242f', // 表格背景色, 不能设置为transparent
+                colorBgContainer: theme.colorBgBody, // 表格背景色, 不能设置为transparent
                 colorText: '#ffffff',
                 colorTextHeading: '#ffffff'
               },
               Pagination: {
-                colorBgContainer: '#25242f', // button背景色
-                colorPrimary: '#fc80ff', // 框架线条色
+                colorBgContainer: theme.colorBgBody, // button背景色
+                colorPrimary: theme.colorPrimary, // 框架线条色
                 colorPrimaryHover: 'white', // 框架线条色
                 colorText: 'white',
               }

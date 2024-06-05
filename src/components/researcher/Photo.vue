@@ -17,7 +17,7 @@ defineProps<{
     </template>
     <div v-for="item in photos.length" :key="item" class="carousel-item">
       <img alt="" :src="photos[item - 1].url" width="100%"/>
-      <p>{{photos[item-1].description}}</p>
+      <p class="description">{{photos[item-1].description}}</p>
     </div>
   </a-carousel>
 </template>
@@ -56,4 +56,9 @@ defineProps<{
 .carousel-item {
   text-align: center;
 }
+
+.description {
+  color: white;
+}
+
 </style>
