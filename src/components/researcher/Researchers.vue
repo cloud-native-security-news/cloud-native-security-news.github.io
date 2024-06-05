@@ -6,7 +6,7 @@ import {ResearcherService} from "@/services/Researcher.ts";
 import {GithubFile} from "@/types/github_file.ts";
 import Github from "@/services/Github.ts";
 import {useRoute} from "vue-router";
-import {Theme} from "@/theme.ts";
+import {Theme, themes} from "@/theme.ts";
 
 const route = useRoute();
 
@@ -51,10 +51,8 @@ const columns = [
   }
 ]
 
-const theme = inject<Ref<Theme>>('theme');
-if (!theme) {
-  throw 'theme undefined'
-}
+const theme = inject<Ref<Theme>>('theme', ref(themes.green));
+
 </script>
 
 <template>

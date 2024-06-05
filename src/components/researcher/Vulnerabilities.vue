@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {Vulnerability} from "@/types/vulnerability.ts";
-import {inject, Ref} from "vue";
+import {inject, ref, Ref} from "vue";
 import {Theme, themes} from "@/theme.ts";
 
 defineProps<{
@@ -41,10 +41,8 @@ const columns = [
   },
 ]
 
-const theme = inject<Ref<Theme>>('theme');
-if (!theme) {
-  throw 'theme undefined'
-}
+const theme = inject<Ref<Theme>>('theme', ref(themes.green));
+
 </script>
 
 <template>

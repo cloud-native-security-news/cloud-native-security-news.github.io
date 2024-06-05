@@ -17,9 +17,6 @@ const go = (item: ItemType) => {
 const mode = ref(false)
 
 const theme = inject<Ref<Theme>>('theme', ref(themes.green));
-if (!theme) {
-  throw 'theme undefined'
-}
 
 const toggleTheme = function () {
   let themeLink = document.getElementById('theme-style') as HTMLLinkElement;
