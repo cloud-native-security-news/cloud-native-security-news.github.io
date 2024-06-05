@@ -29,7 +29,7 @@ a {
   text-decoration-color: #919090;
   text-underline-offset: 0.4em;
   margin-bottom: 10px;
-  color: var(--colorPrimary);
+  color: var(--colorLink);
 }
 
 a:hover {
