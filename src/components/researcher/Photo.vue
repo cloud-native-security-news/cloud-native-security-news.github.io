@@ -49,7 +49,7 @@ defineProps<{
   filter: grayscale(100%);
   display: block;
 }
-:deep .slick-thumb li.slick-active img {
+:deep(.slick-thumb li.slick-active img){
   filter: grayscale(0%);
 }
 
