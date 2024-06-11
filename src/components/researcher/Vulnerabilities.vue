@@ -61,7 +61,13 @@ const theme = inject<Ref<Theme>>('theme', ref(themes.green));
                 colorBgContainer: theme.colorBgBody, // button背景色
                 colorPrimary: theme.colorPrimary, // 框架线条色
                 colorPrimaryHover: 'white', // 框架线条色
-                colorText: 'white'
+                colorText: 'white',
+              },
+              Select: {
+                colorBgContainer: theme.colorBgBody, // button背景色
+                colorBgElevated: theme.colorBgBody,
+                colorText: 'white',
+                controlItemBgActive: theme.colorPrimary,
               }
             }
           }"
