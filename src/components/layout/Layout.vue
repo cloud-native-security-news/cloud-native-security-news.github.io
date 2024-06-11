@@ -74,7 +74,7 @@ onMounted(() => {
                 :items="antdMenu"
             />
           </a-config-provider>
-          <a-switch @change="toggleTheme" v-model:checked="mode"/>
+          <a-switch @change="toggleTheme" checked-children="pink" un-checked-children="green" v-model:checked="mode"/>
         </div>
       </a-layout-header>
       <a-layout-content class="content">
