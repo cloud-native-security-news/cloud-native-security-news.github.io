@@ -91,7 +91,7 @@ const theme = inject<Ref<Theme>>('theme', ref(themes.green));
         </template>
         <template v-else-if="column.key === 'tag'">
             <span v-for="tag in record.tags">
-              <a-tag>{{ tag.name }}</a-tag>
+              <a-tag style="color:white">{{ tag.name }}</a-tag>
             </span>
         </template>
         <template v-else-if="column.key === 'published'">

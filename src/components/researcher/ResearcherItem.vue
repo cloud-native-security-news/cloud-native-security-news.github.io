@@ -12,13 +12,13 @@ import Other from "@/components/researcher/Other.vue";
 import Json from "@/components/researcher/Json.vue";
 
 const props = defineProps<{
-  researcher_id: number
+  researcher_id: string
 }>();
 
 const researcher = ref<Researcher | null>(null);
 
 onMounted(async () => {
-  researcher.value = await ResearcherService.getResearcherById(parseInt(props.researcher_id.toString()));
+  researcher.value = await ResearcherService.getResearcherById(parseInt(props.researcher_id));
 });
 
 const filename = computed(() => {
@@ -33,7 +33,7 @@ const filename = computed(() => {
 
 <template>
   <div v-if="researcher">
-    <Json :researcher_id="researcher_id" :name="filename"/>
+    <Json :researcher_id="parseInt(researcher_id)" :name="filename"/>
     <a-row>
       <a-col :span="8">
         <basic :researcher="researcher"/>
