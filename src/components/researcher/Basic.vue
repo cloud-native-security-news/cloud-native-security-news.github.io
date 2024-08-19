@@ -2,9 +2,9 @@
 
 import {VCSType2Icon} from "@/types/vcs.ts";
 import {Researcher} from "@/types/researcher.ts";
-import {createFromIconfontCN, TwitterOutlined} from "@ant-design/icons-vue";
+import {createFromIconfontCN} from "@ant-design/icons-vue";
 import {SocialType2Icon, SocialType2Text, Type} from "@/types/social.ts";
-import {ITType, ITType2Text, ITTypeName} from "@/types/it.ts";
+import {ITType, ITType2Text} from "@/types/it.ts";
 import Photo from "@/components/researcher/Photo.vue";
 
 defineProps<{
