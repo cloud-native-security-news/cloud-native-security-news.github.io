@@ -9,11 +9,17 @@ export enum ITType {
     Asciinema,
     Dockerhub,
     PacketStorm,
+    ExploitDB,
+    SlideShare,
+    SpeakerDeck,
 }
 
-export const ITTypeName: { [key in ITType]: String } = {
+export const ITType2Text: { [key in ITType]: string } = {
     [ITType.Unknown]: 'Unknown',
     [ITType.Asciinema]: 'Asciinema',
     [ITType.Dockerhub]: 'Dockerhub',
     [ITType.PacketStorm]: 'PacketStorm',
+    [ITType.ExploitDB]: 'ExploitDB',
+    [ITType.SlideShare]: 'SlideShare',
+    [ITType.SpeakerDeck]: 'SpeakerDeck',
 }

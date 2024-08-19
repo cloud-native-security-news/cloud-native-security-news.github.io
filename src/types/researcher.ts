@@ -12,6 +12,8 @@ import {Opensource} from "@/types/opensource.ts";
 import {Other} from "@/types/other.ts";
 import {IT} from "@/types/it.ts";
 import {Photo} from "@/types/photo.ts";
+import {Education} from "@/types/education.ts";
+import {Job} from "@/types/job.ts";
 
 export interface Researcher {
     // basic
@@ -23,6 +25,8 @@ export interface Researcher {
     photo_url: string;
     photos: Photo[];
     organizations: Organization[];
+    jobs: Job[];
+    educations: Education[];
     emails: Email[];
     websites: Website[];
 

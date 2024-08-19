@@ -35,10 +35,10 @@ const filename = computed(() => {
   <div v-if="researcher">
     <Json :researcher_id="parseInt(researcher_id)" :name="filename"/>
     <a-row>
-      <a-col :span="8">
+      <a-col :span="8" style="padding: 10px">
         <basic :researcher="researcher"/>
       </a-col>
-      <a-col :span="16">
+      <a-col :span="16" style="padding: 10px">
         <Vulnerabilities :vulnerabilities="researcher.vulnerabilities" :researcher_id="researcher.ID"/>
         <Publication :publications="researcher.publications"/>
         <Present :presents="researcher.presents" />
