@@ -1,7 +1,3 @@
-import {FunctionalComponent} from "vue";
-import {AntdIconProps} from "@ant-design/icons-vue/lib/components/AntdIcon";
-import {QuestionOutlined, TwitterOutlined} from "@ant-design/icons-vue";
-
 export interface Social {
     type: Type;
     username: string
@@ -18,22 +14,24 @@ export enum Type {
     ResearchGate,
     LinkedIn,
     Youtube,
-    Instagram
+    Instagram,
+    Matrix,
+    Crunchbase,
 }
 
-type IconType = FunctionalComponent<AntdIconProps>;
-
-export const SocialType2Icon: { [key in Type]: IconType } = {
-    [Type.Unknown]: QuestionOutlined,
-    [Type.Twitter]: TwitterOutlined,
-    [Type.Mastodon]: QuestionOutlined,
-    [Type.Telegram]: QuestionOutlined,
-    [Type.Reddit]: QuestionOutlined,
-    [Type.Facebook]: QuestionOutlined,
-    [Type.ResearchGate]: QuestionOutlined,
-    [Type.LinkedIn]: QuestionOutlined,
-    [Type.Youtube]: QuestionOutlined,
-    [Type.Instagram]: QuestionOutlined,
+export const SocialType2Icon: { [key in Type]: string } = {
+    [Type.Unknown]: "icon-unknown",
+    [Type.Twitter]: "icon-Twitter",
+    [Type.Mastodon]: "icon-mastodon",
+    [Type.Telegram]: "icon-telegram",
+    [Type.Reddit]: "icon-reddit",
+    [Type.Facebook]: "icon-facebook",
+    [Type.ResearchGate]: "icon-researchgate",
+    [Type.LinkedIn]: "icon-linkedin",
+    [Type.Youtube]: "icon-youtube",
+    [Type.Instagram]: "icon-instagram",
+    [Type.Matrix]: "icon-matrix",
+    [Type.Crunchbase]: "icon-crunchbase",
 }
 
 export const SocialType2Text: { [key in Type]: string } = {
@@ -47,4 +45,6 @@ export const SocialType2Text: { [key in Type]: string } = {
     [Type.LinkedIn]: "LinkedIn",
     [Type.Youtube]: "Youtube",
     [Type.Instagram]: "Instagram",
+    [Type.Matrix]: "Matrix",
+    [Type.Crunchbase]: "Crunchbase",
 }

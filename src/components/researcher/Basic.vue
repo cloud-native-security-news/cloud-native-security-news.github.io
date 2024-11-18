@@ -3,9 +3,11 @@
 import {VCSType2Icon} from "@/types/vcs.ts";
 import {Researcher} from "@/types/researcher.ts";
 import {createFromIconfontCN} from "@ant-design/icons-vue";
-import {SocialType2Icon, SocialType2Text, Type} from "@/types/social.ts";
-import {ITType, ITType2Text} from "@/types/it.ts";
+import {SocialType2Icon, SocialType2Text} from "@/types/social.ts";
+import {ITType, ITType2Icon, ITType2Text} from "@/types/it.ts";
 import Photo from "@/components/researcher/Photo.vue";
+import Job from "@/components/researcher/Job.vue";
+import Education from "@/components/researcher/Education.vue";
 
 defineProps<{
   researcher: Researcher
@@ -68,20 +70,20 @@ const IconFont = createFromIconfontCN({
   <h3>Social Media</h3>
   <ul class="no-list-style" style="padding-left: 0;">
     <li v-for="i in researcher.socials">
+      <icon-font :type="SocialType2Icon[i.type]"/>
+      &nbsp;
       {{ SocialType2Text[i.type] }}
-      <icon-font v-if="i.type === Type.ResearchGate" type="icon-researchgate"/>
-      <icon-font v-else-if="i.type === Type.Facebook" type="icon-facebook"/>
-      <icon-font v-else-if="i.type === Type.Youtube" type="icon-youtube"/>
-      <icon-font v-else-if="i.type === Type.LinkedIn" type="icon-linkedin"/>
-      <Component v-else :is="SocialType2Icon[i.type]"/>
+      &nbsp;
       <a :href="i.address" target="_blank">@{{ i.username }}</a>
     </li>
   </ul>
   <h3>IT account</h3>
   <ul class="no-list-style" style="padding-left: 0;">
     <li v-for="i in researcher.its">
+      <icon-font :type="ITType2Icon[i.type]"/>
+      &nbsp;
       {{ ITType2Text[i.type as ITType] }}
-      <icon-font v-if="i.type === ITType.SpeakerDeck" type="icon-speaker-deck"/>
+      &nbsp;
       <a :href="i.address" target="_blank">@{{ i.username }}</a>
     </li>
   </ul>
