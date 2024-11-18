@@ -14,7 +14,7 @@ defineProps<{
 }>();
 
 const IconFont = createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/c/font_4554041_kvo63spa3i.js',
+  scriptUrl: '//at.alicdn.com/t/c/font_4554041_fi5y7ncrxaq.js',
 });
 </script>
 
