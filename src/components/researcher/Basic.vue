@@ -44,8 +44,8 @@ const IconFont = createFromIconfontCN({
     <li>
       Email
       <ul class="no-list-style">
-        <li v-for="i in researcher.emails">
-          {{ i.email }}
+        <li v-for="email in researcher.emails">
+          {{ email }}
         </li>
       </ul>
     </li>

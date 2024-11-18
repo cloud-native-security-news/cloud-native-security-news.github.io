@@ -4,7 +4,6 @@ import {Social} from "./social.ts";
 import {Vulnerability} from "./vulnerability.ts";
 import {Nickname} from "@/types/nickname.ts";
 import {Organization} from "@/types/organization.ts";
-import {Email} from "@/types/email.ts";
 import {DataSource} from "@/types/datasource.ts";
 import {Publication} from "@/types/publication.ts";
 import {Present} from "@/types/present.ts";
@@ -27,7 +26,7 @@ export interface Researcher {
     organizations: Organization[];
     jobs: Job[];
     educations: Education[];
-    emails: Email[];
+    emails: string[];
     websites: Website[];
 
     // vcs
