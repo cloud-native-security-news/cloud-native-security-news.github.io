@@ -10,7 +10,7 @@ const props = defineProps<{
 
 <template>
   <a-row>
-    <router-link :to="`/${props.menu.key}?code=${$route.query.code}`" class="desc-link">
+    <router-link :to="`/${props.menu.key}${$route.query.code?'code='+$route.query.code:''}`" class="desc-link">
       <component :is="props.menu.icon" class="desc-icon"/>
       <span class="graph-title">{{ menu.title }}</span>
     </router-link>
