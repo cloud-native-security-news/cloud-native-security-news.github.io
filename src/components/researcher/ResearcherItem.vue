@@ -24,7 +24,7 @@ onMounted(async () => {
 const filename = computed(() => {
   let filename = `${researcher.value?.name}`
   if (researcher.value?.nicknames) {
-    filename += `(${researcher.value?.nicknames?.[0]?.nickname})`
+    filename += `(${researcher.value?.nicknames?.[0]})`
   }
   return filename
 })
@@ -41,7 +41,7 @@ const filename = computed(() => {
       <a-col :span="16" style="padding: 10px">
         <Vulnerabilities :vulnerabilities="researcher.vulnerabilities" :researcher_id="researcher.ID"/>
         <Publication :publications="researcher.publications"/>
-        <Present :presents="researcher.presents" />
+        <Present :presents="researcher.presents"/>
         <Opensource :opensources="researcher.opensources"/>
         <Other :others="researcher.others"/>
         <Datasource :data_sources="researcher.data_sources"/>
