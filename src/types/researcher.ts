@@ -2,7 +2,6 @@ import {Website} from "./website.ts";
 import {VCS} from "./vcs.ts";
 import {Social} from "./social.ts";
 import {Vulnerability} from "./vulnerability.ts";
-import {Nickname} from "@/types/nickname.ts";
 import {Organization} from "@/types/organization.ts";
 import {DataSource} from "@/types/datasource.ts";
 import {Publication} from "@/types/publication.ts";
@@ -19,7 +18,7 @@ export interface Researcher {
     ID: number;
     id: string;
     name: string;
-    nicknames: Nickname[];
+    nicknames: string[];
     introduction: string;
     photo_url: string;
     photos: Photo[];

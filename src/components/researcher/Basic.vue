@@ -21,15 +21,15 @@ const IconFont = createFromIconfontCN({
 
   <h1> {{ researcher.name }}</h1>
   <h2 v-if="researcher.nicknames && researcher.nicknames.length > 0">
-    {{ researcher.nicknames[0].nickname }}
+    <span v-if="researcher.nicknames[0] !== researcher.name">{{ researcher.nicknames[0] }}</span>
   </h2>
   <p style="white-space: pre-line">{{ researcher.introduction }}</p>
   <ul class="no-list-style" style="padding-left: 0;">
     <li>
       ID
       <ul class="no-list-style">
-        <li v-for="i in researcher.nicknames">
-          {{ i.nickname }}
+        <li v-for="nickname in researcher.nicknames">
+          {{ nickname }}
         </li>
       </ul>
     </li>
